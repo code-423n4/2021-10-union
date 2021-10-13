@@ -1,80 +1,5 @@
-# ✨ So you want to sponsor a contest
-
-This `README.md` contains a set of checklists for our contest collaboration.
-
-Your contest will use two repos: 
-- **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted. 
-
-Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest is over and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
-
----
-
-# Contest setup
-
-## 🐺 C4: Set up repos
-- [ ] Get GitHub handles from sponsor.
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
-- [ ] Delete this checklist and wait for sponsor to complete their checklist.
-
-## ⭐️ Sponsor: Provide contest details
-
-Under "SPONSORS ADD INFO HERE" heading below, include the following:
-
-- [ ] Name of each contract and:
-  - [ ] lines of code in each
-  - [ ] external contracts called in each
-  - [ ] libraries used in each
-- [ ] Describe any novel or unique curve logic or mathematical models implemented in the contracts
-- [ ] Does the token conform to the ERC-20 standard? In what specific ways does it differ?
-- [ ] Describe anything else that adds any special logic that makes your approach unique
-- [ ] Identify any areas of specific concern in reviewing the code
-- [ ] Add all of the code to this repo that you want reviewed
-- [ ] Create a PR to this repo with the above changes.
-
----
-
-# ⭐️ Sponsor: Provide marketing details
-
-- [ ] Your logo (URL or add file to this repo - SVG or other vector format preferred)
-- [ ] Your primary Twitter handle
-- [ ] Any other Twitter handles we can/should tag in (e.g. organizers' personal accounts, etc.)
-- [ ] Your Discord URI
-- [ ] Your website
-- [ ] Optional: Do you have any quirks, recurring themes, iconic tweets, community "secret handshake" stuff we could work in? How do your people recognize each other, for example? 
-- [ ] Optional: your logo in Discord emoji format
-
----
-
-# Contest prep
-
-## 🐺 C4: Contest prep
-- [ ] Rename this repo to reflect contest date (if applicable)
-- [ ] Rename contest H1 below
-- [ ] Add link to report form in contest details below
-- [ ] Update pot sizes
-- [ ] Fill in start and end times in contest bullets below.
-- [ ] Move any relevant information in "contest scope information" above to the bottom of this readme.
-- [ ] Add matching info to the [code423n4.com public contest data here](https://github.com/code-423n4/code423n4.com/blob/main/_data/contests/contests.csv))
-- [ ] Delete this checklist.
-
-## ⭐️ Sponsor: Contest prep
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 8 hours prior to contest start time.**
-- [ ] Ensure that you have access to the _findings_ repo where issues will be submitted.
-- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
-- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Designate someone (or a team of people) to monitor DMs & questions in the C4 Discord (**#questions** channel) daily (Note: please *don't* discuss issues submitted by wardens in an open channel, as this could give hints to other wardens.)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Union Finance contest details
+
 - $57,000 worth of ETH main award pot
 - $3,000 worth of ETH gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -83,6 +8,89 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 - Starts Oct 14 00:00 UTC
 - Ends Oct 20 23:59 UTC
 
-This repo will be made public before the start of the contest. (C4 delete this line when made public)
+# Links
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
+- [union.finance](https://union.finance/)
+- [twitter](https://twitter.com/unionprotocol)
+- [blog](https://medium.com/union-finance)
+- [docs](https://unionfinance.gitbook.io/docs/)
+- [discord](https://discord.gg/cZagzJ3p8G)
+- [github](https://github.com/unioncredit)
+
+# Documentation
+
+- [Gitbook](https://unionfinance.gitbook.io/docs/)
+- [Gitbook - contracts overview](https://unionfinance.gitbook.io/docs/overview/core)
+- [Gitbook - governance overview](https://unionfinance.gitbook.io/docs/overview/governance)
+
+A good place to start are the `UserManager` and `uToken` contracts.
+
+| Line count | Contract             | Description                                                                                                                              |
+| ---------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 339        | Comptroller.sol      | Distributes rewards                                                                                                                      |
+| 92         | UnionToken.sol       | Mint and distribute UnionTokens.                                                                                                         |
+| 0          | CreditLimitModel.sol | Calculate the user's credit line based on the trust he receives from the vouchees.                                                       |
+| 175        | AaveAdapter.sol      |                                                                                                                                          |
+| 161        | CompoundAdapter.sol  |                                                                                                                                          |
+| 479        | AssetManager.sol     | Manage the token balances staked by the users and deposited by admins, and invest tokens to the integrated underlying lending protocols. |
+| 100        | PureTokenAdapter.sol |                                                                                                                                          |
+| 837        | UserManager.sol      | Manages the Union members credit lines, and their vouchees and borrowers info.                                                           |
+| 150        | UnionGovernor.sol    |                                                                                                                                          |
+| 18         | UErc20.sol           |                                                                                                                                          |
+| 102        | MarketRegistry.sol   | Registering and managing all the lending markets.                                                                                        |
+| 767        | UToken.sol           | Union members can borrow and repay thru this component.                                                                                  |
+| 51         | TreasuryVester.sol   |                                                                                                                                          |
+| 118        | Treasury.sol         |                                                                                                                                          |
+
+# Networks
+
+Union is an upgradeable system. Each deployed contract is actually a "Proxy" that points to an "Implementation" contract. All addresses can be found in the folder `deployments/${network}`.
+
+## Kovan
+
+| Contract         | Address (proxy)                                                                                                             | Upgradeable |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| UserManager      | [0x77aABF576fe07f06bdde95Ba25625d3a91A6190F](https://kovan.etherscan.io/address/0x77aABF576fe07f06bdde95Ba25625d3a91A6190F) | ✅          |
+| MarketRegistry   | [0xB0f8Be21E30ae291e002aD8A28A85e90266Ad099](https://kovan.etherscan.io/address/0xB0f8Be21E30ae291e002aD8A28A85e90266Ad099) | ✅          |
+| Comptroller      | [0x4cAc792Cdb49a9036E4f1dE8F60e86f485D0EB98](https://kovan.etherscan.io/address/0x4cAc792Cdb49a9036E4f1dE8F60e86f485D0EB98) | ✅          |
+| UToken (uDAI)    | [0xd9bAe3CF2E16E72A5a3896d11e46449E65Aa6F52](https://kovan.etherscan.io/address/0xd9bAe3CF2E16E72A5a3896d11e46449E65Aa6F52) | ✅          |
+| AssetManager     | [0x205365B5474D7488fcd862010B1FcA5Bd8c485C9](https://kovan.etherscan.io/address/0x205365B5474D7488fcd862010B1FcA5Bd8c485C9) | ✅          |
+| CompoundAdapter  | [0xf90a43Ed2e76f0635c0f2208D17BCf0C380D270C](https://kovan.etherscan.io/address/0xf90a43Ed2e76f0635c0f2208D17BCf0C380D270C) | ✅          |
+| AaveAdapter      | [0x205365B5474D7488fcd862010B1FcA5Bd8c485C9](https://kovan.etherscan.io/address/0x205365B5474D7488fcd862010B1FcA5Bd8c485C9) | ✅          |
+| PureTokenAdapter | [0x93AC44Eff25e0F055CA2B1d4bcCEF453A8541F96](https://kovan.etherscan.io/address/0x93AC44Eff25e0F055CA2B1d4bcCEF453A8541F96) | ✅          |
+| UnionToken       | [0x598C0657385A1a631dD71818485bD704CFa552aE](https://kovan.etherscan.io/address/0x598C0657385A1a631dD71818485bD704CFa552aE) | ❌          |
+| Governor         | [0xed1411eaCDaE26ACeAf0240cf4B4077dbB75d06a](https://kovan.etherscan.io/address/0xed1411eaCDaE26ACeAf0240cf4B4077dbB75d06a) | ❌          |
+| Timelock         | [0x5aAD7F7239c28Aa38c6BA6b62B3267D3a6Bb7F7a](https://kovan.etherscan.io/address/0x5aAD7F7239c28Aa38c6BA6b62B3267D3a6Bb7F7a) | ❌          |
+| Treasury         | [0x14bF0cb2dEb280e8FE68242F06206F970c2ef425](https://kovan.etherscan.io/address/0x14bF0cb2dEb280e8FE68242F06206F970c2ef425) | ❌          |
+| Treasury Vester  | [0x15dCc98027dC9a3E655A37bD36ED7F7483aBBEc8](https://kovan.etherscan.io/address/0x15dCc98027dC9a3E655A37bD36ED7F7483aBBEc8) | ❌          |
+| Kovan DAI        | [0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa](https://kovan.etherscan.io/address/0x4f96fe3b7a6cf9725f59d353f723c1bdb64ca6aa) | ❌          |
+| Kovan cDAI       | [0xf0d0eb522cfa50b716b3b1604c4f0fa6f04376ad](https://kovan.etherscan.io/address/0xf0d0eb522cfa50b716b3b1604c4f0fa6f04376ad) | ❌          |
+
+# Setup
+
+Requirements:
+
+- Node @12.x
+- Python @3.x (for running Slither)
+
+Clone the repo and then install dependencies:
+
+```
+$ yarn install
+```
+
+# Testing
+
+To run the entire test suite:
+
+```
+$ yarn test
+```
+
+# Coverage
+
+To run tests with coverage:
+
+```
+$ yarn coverage
+```
